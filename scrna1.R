@@ -81,3 +81,14 @@ DimHeatmap(pbmc, dims = 1, cells = 500, balanced = TRUE)
 # Elbow method to obtain the dimensionality
 
 ElbowPlot(pbmc)
+
+
+# Clustering and Neighborhood analysis
+
+pbmc <- FindNeighbors(pbmc, dims = 1:10)
+pbmc <- FindClusters(pbmc, resolution = 0.5)
+
+# non-linear dimensional reduction (UMAP/tSNE)
+
+pbmc <- RunUMAP(pbmc,dims = 1:10)
+DimPlot(pbmc,reduction = "umap")
