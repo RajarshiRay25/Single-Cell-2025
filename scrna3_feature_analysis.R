@@ -6,9 +6,10 @@ library(tidyverse)
 
 # Define dataset
 
-ifnb <- readRDS('ifnb_harmony.rds')
+ifnb <- readRDS('ifnb.rds')
 View(ifnb@meta.data)
 
+View(ifnb@assays$RNA@counts)
 # visualize data
 clusters <- DimPlot(ifnb, reduction = 'umap', group.by = 'seurat_clusters', label = TRUE)
 condition <- DimPlot(ifnb, reduction = 'umap', group.by = 'stim')
